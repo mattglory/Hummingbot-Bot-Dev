@@ -1,58 +1,68 @@
 # Hummingbot-Bot-Dev
 
-A professional Hummingbot-based trading bot implementation, showcasing Python skills, multi-exchange API integration, and real-time cross-exchange market making strategies, with relevance to Bitcoin and DeFi development.
+A professional Hummingbot-based trading bot showcasing advanced DeFi and crypto expertise, developed by Glory Mathew (mattglory) for open-source contribution and personal growth in blockchain technology.
 
 ## Overview
-This repository contains a custom trading bot built using Hummingbot, an open-source framework for cryptocurrency trading. The bot implements a *cross-exchange market making* strategy, integrating *Hyperliquid* (maker) with the trading pair *ETH-USDC* and *Uniswap* (taker) with the trading pair *WBTC-USDC* to execute trades based on real-time market data. Developed by Glory Mathew (mattglory), this project demonstrates expertise in Python programming, dual-exchange API handling, and automated trading systems, with plans to expand to Binance, Hyperliquid perpetuals, and Coinbase Pro. The configuration is defined in conf_simple_xemm_1.yml.
+This repository hosts a custom trading bot built with Hummingbot, enhanced by the Hummingbot Gateway for multi-protocol DeFi integration. The bot executes a *cross-exchange market making strategy, linking **Hyperliquid* (maker, ETH-USDC) and *Uniswap* (taker, WBTC-USDC), and extends to *Meteora, **Raydium, and **Quickswap* via the Gateway. This project demonstrates Python proficiency, API integration across Ethereum, Solana, and Polygon, and practical experience with AMMs and liquidity provision. Configurations are managed in conf_advanced_xemm_1.yml.
 
 ## Features
-- Real-time cross-exchange market making between Hyperliquid (ETH-USDC) and Uniswap (WBTC-USDC)
-- API integrations with Hyperliquid and Uniswap
-- Configurable order amount (10 units), spread (10 bps), and max order age (120 seconds)
-- Slippage buffer (25 bps) for robust trading
-- [Add other features, e.g., logging, if implemented]
+- Cross-exchange market making between Hyperliquid (ETH-USDC) and Uniswap (WBTC-USDC)
+- Hummingbot Gateway integration with Meteora, Raydium, and Quickswap for AMM trading
+- Configurable settings: 10-unit orders, 10 bps spread, 120-second max order age
+- 25 bps slippage buffer for robust execution
+- Multi-chain support (Ethereum, Solana, Polygon)
 
-## Configuration Details (conf_simple_xemm_1.yml)
-- *Strategy*: Cross-exchange market making
+## Configuration Details (conf_advanced_xemm_1.yml)
+- *Strategy*: Cross-exchange market making with Gateway enhancements
 - *Maker Exchange*: Hyperliquid (ETH-USDC)
 - *Taker Exchange*: Uniswap (WBTC-USDC)
+- *Additional DEXs*: Meteora, Raydium, Quickswap (via Gateway)
 - *Order Amount*: 10 units
 - *Spread*: 10 basis points (bps)
 - *Minimum Spread*: 0 bps
 - *Slippage Buffer*: 25 bps
 - *Maximum Order Age*: 120 seconds
-- Usage: Load this file in Hummingbot to run the strategy (e.g., hummingbot -c conf_simple_xemm_1.yml).
+- Usage: Run with hummingbot -c conf_advanced_xemm_1.yml
+
+## AMM Configuration
+This project leverages the Hummingbot Gateway to integrate with the following AMM protocols, each configured for optimal liquidity provision and trading:
+- *Uniswap (Ethereum)*: Configured with a 0.3% fee tier, using WBTC-USDC pair, with a custom liquidity delta of 5% to balance depth and cost.
+- *Meteora (Solana)*: Set up with a 0.25% fee tier, targeting ETH-USDC, with a 10% position refresh interval for dynamic adjustments.
+- *Raydium (Solana)*: Utilizes a 0.25% fee tier, paired with SOL-USDC, with a 15% inventory skew limit to manage risk.
+- *Quickswap (Polygon)*: Configured with a 0.3% fee tier, using MATIC-USDC, with a 20-second order refresh time for responsiveness.
+- These settings are defined in conf/gateway_amm_config.yml and can be adjusted via the Gateway interface or YAML edits.
 
 ## Getting Started
 ### Prerequisites
 - Python 3.7+
-- Hummingbot installed (follow [Hummingbot docs](https://docs.hummingbot.io/))
-- API keys for Hyperliquid (ETH-USDC) and Uniswap (WBTC-USDC)
+- Hummingbot and Hummingbot Gateway installed (see [Hummingbot docs](https://docs.hummingbot.io/))
+- API keys for Hyperliquid, Uniswap, and Gateway-supported DEXs
 
 ### Installation
-1. Clone this repository: git clone https://github.com/mattglory/Hummingbot-Bot-Dev.git
-2. Navigate to the directory: cd Hummingbot-Bot-Dev
-3. Install dependencies: pip install -r requirements.txt (create a requirements.txt file with at least requests==2.28.1)
-4. Configure your API keys in conf/config.yml
-5. Run the bot: Use conf_simple_xemm_1.yml with Hummingbot (e.g., hummingbot -c conf_simple_xemm_1.yml)
+1. Clone repository: git clone https://github.com/mattglory/Hummingbot-Bot-Dev.git
+2. Navigate: cd Hummingbot-Bot-Dev
+3. Install dependencies: pip install -r requirements.txt (create with requests==2.28.1)
+4. Configure API keys: Edit conf/config.yml
+5. Run bot: hummingbot -c conf_advanced_xemm_1.yml
 
 ## Usage
-- Edit conf_simple_xemm_1.yml to adjust parameters (e.g., order amount, spread) and ensure ETH-USDC (Hyperliquid) and WBTC-USDC (Uniswap) pairs are configured.
-- Start the bot with Hummingbot using the configuration file.
-- Monitor performance (add log file path if implemented).
+- Adjust conf_advanced_xemm_1.yml for parameters and DEX settings
+- Configure AMM settings in conf/gateway_amm_config.yml for Uniswap, Meteora, Raydium, Quickswap
+- Launch bot with Hummingbot using the config file
+- Monitor performance (log file path to be added)
 
 ## Skills Demonstrated
 - *Programming*: Python
-- *Tools*: Hummingbot, Git, API integration (Hyperliquid, Uniswap, with plans for Binance, Hyperliquid perpetuals, Coinbase Pro)
-- *Relevance*: Experience applicable to Bitcoin Core (Brink Fellowship) and DeFi trading innovation (Paradigm Fellowship 2025)
+- *Tools*: Hummingbot, Hummingbot Gateway, Git, API integration
+- *Relevance*: Applicable to DeFi innovation, crypto market structures, and open-source development
 
-## Why Bitcoin, DeFi, and Fellowships?
-My Hummingbot work, especially this cross-exchange strategy with ETH-USDC (Hyperliquid) and WBTC-USDC (Uniswap) pairs, has honed my skills in managing multiple APIs and real-time systems—skills I’m eager to apply to Bitcoin Core’s open-source development (Brink Fellowship) and DeFi trading advancements (Paradigm Fellowship 2025). This project is a stepping stone toward contributing to Bitcoin’s protocol and exploring innovative trading solutions, and I’m excited to join mentorship programs in London (Brink) and beyond (Paradigm). As of 01:33 AM BST, Sunday, August 03, 2025, I’m actively refining this for my applications.
+## Project Motivation
+This Hummingbot project, integrating Hyperliquid, Uniswap, Meteora, Raydium, and Quickswap via the Gateway, reflects my expertise in AMMs, cross-chain trading, and market-making. The use of WBTC-USDC connects to Bitcoin ecosystems, while multi-protocol AMM work supports broader DeFi advancements. As of 12:23 PM BST, Sunday, August 03, 2025, I’m refining this for potential collaboration and skill enhancement in the crypto space.
 
 ## Future Work
-- Expand integrations to Binance, Hyperliquid perpetuals, and Coinbase Pro with USDC-based pairs
-- Optimize cross-exchange strategy performance
-- Explore Bitcoin Core contributions (e.g., testing, documentation) and DeFi enhancements
+- Expand Gateway to additional DEXs (e.g., PancakeSwap)
+- Develop MEV and arbitrage strategies
+- Contribute to open-source crypto projects
 
 ## Contact
 - *Name*: Glory Mathew
@@ -60,7 +70,7 @@ My Hummingbot work, especially this cross-exchange strategy with ETH-USDC (Hyper
 - *GitHub*: [mattglory](https://github.com/mattglory)
 
 ## License
-This project is licensed under the [MIT License](LICENSE).
+Licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
-Inspired by the Hummingbot community, the decentralized vision of Bitcoin, DeFi innovation, and the Brink and Paradigm Fellowship opportunities.
+Inspired by the Hummingbot community, crypto pioneers, and the broader blockchain ecosystem.
